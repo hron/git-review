@@ -1,0 +1,33 @@
+#! /usr/bin/env ruby
+
+# BRANCH=$1
+#
+# for commit in `git log --pretty='%H' $BRANCH..master`; do
+#     git notes add -m 'Reviewed-By: Aleksei Gusev <aleksei.gusev@gmail.com>' $commit
+# done
+
+require 'rubygems'
+require 'git'
+require 'logger'
+
+# git = Git.open(".", :log => Logger.new(STDOUT))
+git = Git.open(".")
+
+raise "Current branch is master. Exiting..." if git.current_branch == 'master'
+
+module Git
+  class Lib
+    def add_note(commit, note)
+      command('notes add -f', ["-m", note, commit.sha])
+    end
+  end
+end
+
+git.log.between("master", git.current_branch).each do |commit|
+  note = "".tap do |msg|
+    msg << 'Reviewed-By: '
+    msg << "#{git.config('user.name')} <#{git.config('user.email')}>"
+  end
+
+  git.lib.add_note(commit, note)
+end
