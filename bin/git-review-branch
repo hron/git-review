@@ -7,20 +7,6 @@
 # done
 
 require 'rubygems'
-require 'git'
-require 'logger'
-require 'git_review_branch'
+require 'git_review_branch/cli'
 
-# git = Git.open(".", :log => Logger.new(STDOUT))
-git = Git.open(".")
-
-raise "Current branch is master. Exiting..." if git.current_branch == 'master'
-
-git.log.between("master", git.current_branch).each do |commit|
-  note = "".tap do |msg|
-    msg << 'Reviewed-By: '
-    msg << "#{git.config('user.name')} <#{git.config('user.email')}>"
-  end
-
-  git.lib.add_note(commit, note)
-end
+GitReviewBranch::CLI.start
