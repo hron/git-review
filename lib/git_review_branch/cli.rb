@@ -1,8 +1,9 @@
 require 'thor'
+require 'git_review_branch/git_ext'
 
 module GitReviewBranch
   class CLI < Thor
-    desc "Add note with Reviewed-By: for each commit in current branch."
+    desc "review", "Add note with Reviewed-By: for each commit in current branch."
     def review
       # git = Git.open(".", :log => Logger.new(STDOUT))
       git = Git.open(".")
