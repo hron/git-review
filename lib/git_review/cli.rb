@@ -1,7 +1,7 @@
 require 'thor'
-require 'git_review_branch'
+require 'git_review'
 
-module GitReviewBranch
+module GitReview
   class CLI < Thor
     desc "review", "Add note with Reviewed-By: for each commit in current branch."
     def review

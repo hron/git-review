@@ -1,6 +1,6 @@
 require 'git'
 
-module GitReviewBranch
+module GitReview
   module GitLibExt
     def add_note(commit, note)
       command('notes add -f', ["-m", note, commit.sha])
@@ -8,4 +8,4 @@ module GitReviewBranch
   end
 end
 
-Git::Lib.send(:include, GitReviewBranch::GitLibExt)
+Git::Lib.send(:include, GitReview::GitLibExt)

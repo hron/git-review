@@ -1,10 +1,10 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "git_review_branch/version"
+require "git_review/version"
 
 Gem::Specification.new do |s|
   s.name        = "git-review-branch"
-  s.version     = GitReviewBranch::VERSION
+  s.version     = GitReview::VERSION
   s.authors     = ["Aleksei Gusev"]
   s.email       = ["aleksei.gusev@gmail.com"]
   s.homepage    = ""
