@@ -1,5 +1,5 @@
 require 'thor'
-require 'git_review_branch/git_ext'
+require 'git_review_branch'
 
 module GitReviewBranch
   class CLI < Thor
