@@ -8,10 +8,12 @@ def setup_sample_repository
   silence_stream(STDERR) do
     silence_stream(STDOUT) do
       system <<-SHELL
-    rm -rf tmp/sample_repository
-    mkdir tmp/sample_repository
-    cd tmp/sample_repository
+    rm -rf tmp/aruba
+    mkdir tmp/aruba
+    cd tmp/aruba
     git init
+    git config --add user.name Reviewer
+    git config --add user.email reviewer@example.com
     touch README
     git add README
     git commit -m 'first commit.'
