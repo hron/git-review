@@ -10,3 +10,10 @@ Feature: Adding 'Reviewed-By:' note for reviewed commits
     When I run `git review-branch`
     Then the output should contain "Reviewed-By: Reviewer <reviewer@example.com>"
     And the output should contain "2 commits are marked as reviewed by you."
+
+  Scenario: Mark already merged commits
+    When I run `git log`
+    Then the output should not contain "Reviewed-By:"
+    When I run `git review-branch commits HEAD HEAD~1`
+    Then the output should contain "Reviewed-By: Reviewer <reviewer@example.com>"
+    And the output should contain "2 commits are marked as reviewed by you."

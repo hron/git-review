@@ -17,6 +17,9 @@ def setup_sample_repository
     touch README
     git add README
     git commit -m 'first commit.'
+    touch Gemfile
+    git add Gemfile
+    git commit -m 'second commit.'
     git branch branch-for-review
     git checkout branch-for-review
     touch file1

@@ -3,4 +3,4 @@
 require 'rubygems'
 require 'git_review_branch/cli'
 
-GitReviewBranch::CLI.new.review
+ARGV.any? ? GitReviewBranch::CLI.start : GitReviewBranch::CLI.new.review
