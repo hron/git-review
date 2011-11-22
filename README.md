@@ -5,7 +5,7 @@ A git command to add notes with tag 'Reviewed-By: Reviewer \<reviewer@example.co
 
 ## Setup
 
-    gem install git-review
+    gem install git-review-notes
 
 ## Usage
 
