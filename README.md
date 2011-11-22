@@ -1,8 +1,7 @@
 # git-review
 
 
-A git command to add notes with tag 'Reviewed-By: Reviewer
-<reviewer@example.com>'.
+A git command to add notes with tag 'Reviewed-By: Reviewer <reviewer@example.com>'.
 
 ## Setup
 
