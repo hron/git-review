@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "git_review/version"
 
 Gem::Specification.new do |s|
-  s.name        = "git-review"
+  s.name        = "git-review-notes"
   s.version     = GitReview::VERSION
   s.authors     = ["Aleksei Gusev"]
   s.email       = ["aleksei.gusev@gmail.com"]
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
     git review commits HEAD~1 648dbac marks individual commits as reviewed.
   DSC
 
-  s.rubyforge_project = "git-review"
+  s.rubyforge_project = "git-review-notes"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
