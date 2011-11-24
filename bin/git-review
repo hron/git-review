@@ -1,6 +1,6 @@
 #! /usr/bin/env ruby
 
 require 'rubygems'
-require 'git_review/cli'
+require 'git_review_notes/cli'
 
-ARGV.any? ? GitReview::CLI.start : GitReview::CLI.new.review
+ARGV.any? ? GitReviewNotes::CLI.start : GitReviewNotes::CLI.new.review

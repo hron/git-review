@@ -1,6 +1,6 @@
 require 'git'
 
-module GitReview
+module GitReviewNotes
   module GitLibExt
     def add_note(commit, note)
       command('notes add -f', ["-m", note, commit.sha])
@@ -8,4 +8,4 @@ module GitReview
   end
 end
 
-Git::Lib.send(:include, GitReview::GitLibExt)
+Git::Lib.send(:include, GitReviewNotes::GitLibExt)
