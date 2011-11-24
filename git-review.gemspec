@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'git'
   s.add_runtime_dependency 'thor'
   s.add_development_dependency "cucumber"
-  s.add_development_dependency "aruba", "= 0.4.6"
+  s.add_development_dependency "aruba", "0.4.6"
   s.add_development_dependency "guard-cucumber"
   s.add_development_dependency "active_support"
 end
