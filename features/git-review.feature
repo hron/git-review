@@ -10,8 +10,7 @@ Feature: Adding 'Reviewed-By:' note for reviewed commits
     When I run `git review` interactively
     And I type "y"
     Then the output should contain "Reviewed-By: Reviewer <reviewer@example.com>"
-    And the output should contain "Are you sure about to push this review for 2 commit(s)? [y/N]"
-    Then the output should contain "refs/notes/commits -> refs/notes/commits"
+    And the output should contain "refs/notes/commits -> refs/notes/commits"
 
   Scenario: Mark already merged commits
     When I run `git log`
@@ -19,5 +18,4 @@ Feature: Adding 'Reviewed-By:' note for reviewed commits
     When I run `git review commits HEAD HEAD~1` interactively
     And I type "y"
     Then the output should contain "Reviewed-By: Reviewer <reviewer@example.com>"
-    And the output should contain "Are you sure about to push this review for 2 commit(s)? [y/N]"
-    Then the output should contain "refs/notes/commits -> refs/notes/commits"
+    And the output should contain "refs/notes/commits -> refs/notes/commits"
