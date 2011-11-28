@@ -7,13 +7,17 @@ Feature: Adding 'Reviewed-By:' note for reviewed commits
     When I run `git checkout branch-for-review`
     And I run `git log`
     Then the output should not contain "Reviewed-By:"
-    When I run `git review`
+    When I run `git review` interactively
+    And I type "y"
     Then the output should contain "Reviewed-By: Reviewer <reviewer@example.com>"
-    And the output should contain "2 commits are marked as reviewed by you."
+    And the output should contain "Are you sure about to push this review for 2 commit(s)? [y/N]"
+    Then the output should contain "refs/notes/commits -> refs/notes/commits"
 
   Scenario: Mark already merged commits
     When I run `git log`
     Then the output should not contain "Reviewed-By:"
-    When I run `git review commits HEAD HEAD~1`
+    When I run `git review commits HEAD HEAD~1` interactively
+    And I type "y"
     Then the output should contain "Reviewed-By: Reviewer <reviewer@example.com>"
-    And the output should contain "2 commits are marked as reviewed by you."
+    And the output should contain "Are you sure about to push this review for 2 commit(s)? [y/N]"
+    Then the output should contain "refs/notes/commits -> refs/notes/commits"

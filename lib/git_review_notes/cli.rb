@@ -9,20 +9,18 @@ module GitReviewNotes
 
       current_branch_commits = git.log.between("master", git.current_branch)
       add_reviewed_by(current_branch_commits)
-      push_refs_notes
 
       system "git log master..#{git.current_branch}"
-      display_report(current_branch_commits)
+      ask_for_pushing_review(current_branch_commits)
     end
 
     desc "commits", "Add not with Reviewed-By: for specified commits separated by space."
     def commits(*commits_shas)
       commits = commits_shas.map {|sha| git.object(sha)}
       add_reviewed_by(commits)
-      push_refs_notes
 
       system "git log"
-      display_report(commits)
+      ask_for_pushing_review(commits)
     end
 
 
@@ -43,9 +41,11 @@ module GitReviewNotes
       system "git push origin refs/notes/*"
     end
 
-    def display_report(commits)
+    def ask_for_pushing_review(commits)
       puts
-      say "#{commits.size} commits are marked as reviewed by you.", :green
+      if yes?("Are you sure about to push this review for #{commits.size} commit(s)? [y/N]", :green)
+        push_refs_notes
+      end
     end
 
     def git
