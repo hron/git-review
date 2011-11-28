@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = GitReviewNotes::VERSION
   s.authors     = ["Aleksei Gusev"]
   s.email       = ["aleksei.gusev@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/hron/git-review"
   s.summary     = "Adds git review command."
   s.description = <<-DSC
     git review will add note for each commit in current branch
