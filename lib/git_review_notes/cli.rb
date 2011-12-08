@@ -19,7 +19,10 @@ module GitReviewNotes
       commits = commits_shas.map {|sha| git.object(sha)}
       add_reviewed_by(commits)
 
-      system "git log"
+      commits_shas.each do |commit_sha|
+        system "git log -1 #{commit_sha}"
+        puts
+      end
       ask_for_pushing_review(commits)
     end
 
